@@ -2,7 +2,7 @@
 
 if __name__ == '__main__':
 
-    f_name = 'p059_cipher.txt'
+    f_name = './p059_cipher.txt'
     cipher = open(f_name).readline()
 
     cipher = cipher.split(',')

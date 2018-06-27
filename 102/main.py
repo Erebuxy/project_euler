@@ -4,7 +4,7 @@ import numpy as np
 
 if __name__ == '__main__':
 
-    f_name = './102/p102_triangles.txt'
+    f_name = './p102_triangles.txt'
     f = open(f_name)
 
     count = 0
@@ -15,7 +15,7 @@ if __name__ == '__main__':
         a1 = np.arctan2(line[0], line[1])
         a2 = np.arctan2(line[2], line[3])
         a3 = np.arctan2(line[4], line[5])
-        
+
         a_list = [a1, a2, a3]
         a_list.sort()
 
@@ -28,6 +28,3 @@ if __name__ == '__main__':
         count += 1
 
     print(count)
-
-        
-
