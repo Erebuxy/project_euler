@@ -44,3 +44,46 @@ def reverse_digit(n):
 
 def c(n, r):
     return int(math.factorial(n) / (math.factorial(r)*math.factorial(n-r)))
+
+def sum_of_divisors(n):
+    if n <= 1:
+        return 0
+
+    ans = 1
+    for i in range(2, math.ceil(math.sqrt(n))):
+        if n % i == 0:
+            ans += i + n / i
+
+    if math.sqrt(n) == int(math.sqrt(n)):
+        ans += math.sqrt(n)
+
+    return int(ans)
+
+def get_cycle(num, dem):
+    intg = int(num / dem)
+    num -= intg * dem
+
+    digit = []
+    num_history = []
+    recurring_start = -1
+    while num != 0:
+        num_history.append(num)
+        num *= 10
+        cur_digit = int(num / dem)
+        digit.append(str(cur_digit))
+
+        num = num - cur_digit * dem
+        if num in num_history:
+            recurring_start = num_history.index(num)
+            break
+
+    if recurring_start == -1:
+        return str(intg) + '.' + ''.join(digit), 0
+    else:
+        ans_str = str(intg) + '.' + ''.join(digit[:recurring_start]) +\
+                  '(' + ''.join(digit[recurring_start:]) + ')'
+        return ans_str, len(digit) - recurring_start
+
+
+
+
