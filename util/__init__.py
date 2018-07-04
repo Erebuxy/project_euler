@@ -36,8 +36,22 @@ def is_prime(num):
 def is_palindromic(n):
     return n == reverse_digit(n)
 
-def concatenate_digit(a, b):
-    return int(str(a) + str(b))
+def is_pandigital(n):
+    s = str(n)
+    if len(s) != 9:
+        return False
+
+    for i in range(1, 10):
+        if str(i) not in s:
+            return False
+
+    return True
+
+def conca_digit(*nums):
+    return concatenate_digit(*nums)
+
+def concatenate_digit(*nums):
+    return int(''.join([str(i) for i in nums]))
 
 def reverse_digit(n):
     return int(str(n)[::-1])
