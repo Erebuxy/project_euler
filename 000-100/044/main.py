@@ -2,7 +2,7 @@
 
 import sys
 import math
-sys.path.insert(0, '../')
+sys.path.insert(0, '../../')
 import util
 
 def is_pen(n):

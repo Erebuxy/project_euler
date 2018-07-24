@@ -3,7 +3,7 @@
 import sys
 import math
 import itertools
-sys.path.insert(0, '../')
+sys.path.insert(0, '../../')
 import util
 
 if __name__ == '__main__':
