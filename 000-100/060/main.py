@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-import imp
-util = imp.load_source('util', './util/__init__.py')
+import sys
+sys.path.insert(0, '../')
 
 if __name__ == '__main__':
 
@@ -19,9 +19,9 @@ if __name__ == '__main__':
 
             for j in primes:
                 if util.is_prime(util.concatenate_digit(cur, j)) and\
-                   util.is_prime(util.concatenate_digit(j, cur)): 
+                   util.is_prime(util.concatenate_digit(j, cur)):
                     prime_dict[j].add(cur)
-            
+
             primes.append(cur)
             prime_dict[cur] = set()
 
@@ -32,12 +32,12 @@ if __name__ == '__main__':
             elim_set.add(i)
 
     for i in prime_dict.keys():
-        prime_dict[i] -= elim_set 
+        prime_dict[i] -= elim_set
 
     min_ans = float('inf')
     ans = ()
     for p1 in prime_dict.keys():
-        
+
         for p2 in prime_dict[p1]:
 
             for p3 in prime_dict[p2]:
@@ -60,4 +60,3 @@ if __name__ == '__main__':
 
     print(min_ans)
     print(ans)
-                        
