@@ -33,6 +33,21 @@ def is_prime(num):
 
     return True
 
+def prime_sieve(n):
+    if n < 2:
+        return []
+
+    p = [2]
+    l = [True for _ in range(int((n-1)/2))]
+    for i in range(len(l)):
+        if l[i]:
+            num = 2 * i + 3
+            p.append(num)
+            for j in range(i + num, len(l), num):
+                l[j] = False
+
+    return p
+
 def is_palindromic(n):
     return n == reverse_digit(n)
 
@@ -98,6 +113,12 @@ def get_cycle(num, dem):
                   '(' + ''.join(digit[recurring_start:]) + ')'
         return ans_str, len(digit) - recurring_start
 
+def sorted_char_list(n):
+    l = list(str(n))
+    l.sort()
+    return ''.join(l)
 
+def is_permutation(a, b):
+    return sorted_char_list(a) == sorted_char_list(b)
 
 
