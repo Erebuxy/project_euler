@@ -74,6 +74,9 @@ def reverse_digit(n):
 def c(n, r):
     return int(math.factorial(n) / (math.factorial(r)*math.factorial(n-r)))
 
+def p(n, r):
+    return int(math.factorial(n) / math.factorial(n-r))
+
 def sum_of_divisors(n):
     if n <= 1:
         return 0
